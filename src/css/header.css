@@ -1,0 +1,30 @@
+.Header
+{
+    background-color: #C38A48;
+    padding: 15px;
+    box-shadow: 0px 4px 5px 0px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 1;
+    
+}
+
+.RebreadingTitle
+{
+    width: 50%;
+    display: flex;
+    justify-content:flex-start;
+}
+
+.HeaderButtons
+{
+    width: 50%;
+    display: flex;
+    justify-content:flex-end;
+}
+
+.RegistrationButton
+{
+    background-color: #FFE7A9;
+    color: #B17733;
+}
+

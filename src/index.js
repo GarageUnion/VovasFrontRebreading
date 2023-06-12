@@ -1,17 +1,86 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+import ErrorPage from './pages/ErrorPage';
+
+import EnterPage from './loginforms/EnterPage';
+import RegistrationPage from './loginforms/RegistrationPage';
+
+import PiesRecipe from './pages/new recipes/PiesRecipe';
+import CraftBreadRecipe from './pages/new recipes/CraftBreadRecipe';
+
+import ProductsPage from './pages/navigation/ProductsPage';
+import PiesPage from './pages/navigation/PiesPage';
+import CraftBreadPage from './pages/navigation/CraftBreadPage';
+
+import ProductsInfoPage from './pages/info/ProductsInfoPage';
+import PiesInfoPage from './pages/info/PiesInfoPage';
+import CraftBreadInfoPage from './pages/info/CraftBreadInfoPage';
+
+import './css/index.css'
+
+const router = createBrowserRouter(
+    [
+        {
+            path: "/",
+            element: <ProductsPage/>,
+            errorElement: <ErrorPage/>,
+        },
+        {
+            path: "/pies",
+            element: <PiesPage/>,
+            errorElement: <ErrorPage/>,
+        },
+        
+        {
+            path: "/craftbread",
+            element: <CraftBreadPage/>,
+            errorElement: <ErrorPage />,
+        },
+        {
+            path: "/pie-info/:id",
+            element: <PiesInfoPage/>,
+            errorElement: <ErrorPage />,
+        },
+        {
+            path: "/product-info/:id",
+            element: <ProductsInfoPage/>,
+            errorElement: <ErrorPage />,
+        },
+        {
+            path: "/craftbread-info/:id",
+            element: <CraftBreadInfoPage/>,
+            errorElement: <ErrorPage />,
+        },
+      
+      {
+          path: "/enter",
+          element: <EnterPage/>,
+          errorElement: <ErrorPage />,
+      },
+
+      {
+          path: "/registration",
+          element: <RegistrationPage/>,
+          errorElement: <ErrorPage />,
+      },
+      {
+          path: "/pies-recipe",
+          element: <PiesRecipe/>,
+          errorElement: <ErrorPage />,
+      },
+      {
+          path: "/craftbread-recipe",
+          element: <CraftBreadRecipe/>,
+          errorElement: <ErrorPage />,
+      },
+    ]
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <React.StrictMode>
+    <RouterProvider router = {router}/>
+  </React.StrictMode>
+)

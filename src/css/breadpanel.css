@@ -1,0 +1,34 @@
+.BreadPanel
+{
+    width:  275px;
+    color:black;
+    margin: 30px;
+    /*border:2px solid #f2f2f2;*/
+    text-align:center;
+}
+
+.BreadPanel img
+{
+    width:  275px;
+    height: 220px;
+    border-radius: 11px;
+}
+
+.name
+{
+    padding: 11px;
+    min-height: 38px;
+    color: #885200;
+    background-color:#FFE7A9;
+    border-radius: 11px;
+}
+
+.rating
+{
+    padding: 11px;
+    margin-top: 4px;
+    color:#FFE7A9;
+    background-color: #B17733;
+    border-radius: 11px;
+    justify-content: center;
+}

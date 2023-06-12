@@ -1,0 +1,35 @@
+
+.NavigationButtons{
+    width: 100%;
+    display: flex;
+    background-color: #FFE7A9;
+    font-weight: 600;
+
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.NavigationButtons button{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0%;
+
+    cursor:pointer;
+    font-size: 30px;
+    color: #885200;
+    
+    width: 300px;
+    height: 60px;
+
+    background-color: #FFE7A9;
+    border-radius: 0%;
+    border-width: 0;
+
+    box-shadow: none;
+}
+
+.PiesButton button
+{
+    border-left-width: 0.5px;
+    border-right-width: 0.5px;
+}
+
