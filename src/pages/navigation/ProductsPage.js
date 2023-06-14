@@ -4,13 +4,39 @@ import BreadTable from "../../components/BreadTable";
 
 class ProductsPage extends React.Component
 {
-constructor(props)
-{
-    super(props)
-    this.state =
+    constructor(props)
     {
-        products:[
-            {
+        super(props)
+        this.state =
+        {
+            products:[]
+        }
+        this.getBreadList = this.getBreadList.bind(this)
+        this.getBreadList(this)
+        
+    }
+
+    getBreadList = (that) => {
+        fetch('http://localhost:5062/Bread/many') 
+        .then(function(response){return response.json();})
+        .then(function(jsonStr){that.setState({products: jsonStr});})
+        .catch(error => console.error(error));
+    }
+
+    render()
+    {
+        return(
+            <div>
+                <Header currentPage = "ProductsPage"/>
+                <BreadTable breads = {this.state.products} link="/product-info/"/>
+            </div>
+        )
+    }
+}
+
+export default ProductsPage
+
+/* {
                 id: 1,
                 name: "Булочка",
                 rating: 4,
@@ -70,19 +96,4 @@ constructor(props)
                 name: "Булимичка",
                 rating: 4,
             }
-        ]
-    }
-}
-
-    render()
-    {
-        return(
-            <div>
-                <Header currentPage = "ProductsPage"/>
-                <BreadTable breads = {this.state.products} link="/product-info/"/>
-            </div>
-        )
-    }
-}
-
-export default ProductsPage
+            */

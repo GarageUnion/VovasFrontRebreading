@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
+import { IoExitOutline} from 'react-icons/io5'
 
 import Rebreading from "../img/Rebreading.png"
 
@@ -29,6 +30,27 @@ class Header extends React.Component
 {
     render()
     {
+        let rightContainer
+        if(localStorage.getItem("loggedIn"))
+        {
+            rightContainer = 
+            <div className="LoggedUser">
+                <label className='ProfileName'>{localStorage.getItem('profileName')} {localStorage.getItem('profileId')}</label>
+                <IoExitOutline className='ExitIcon' 
+                onClick={()=>{  localStorage.setItem('loggedIn', "")
+                                localStorage.setItem('profileName', "")
+                                localStorage.setItem('profileId', "")
+                                window.history.go()}}>
+                </IoExitOutline>
+            </div>
+        }
+        else{
+            rightContainer = 
+            <div className="HeaderButtons">
+                <Link to={"/enter"}><button >Вход</button></Link>
+                <Link to ={"/registration"}><button className="RegistrationButton">Регистрация</button></Link>
+            </div>
+        }
         return(
             <div>
                 <header>
@@ -37,11 +59,7 @@ class Header extends React.Component
                             <img src = {Rebreading} width="auto" height="50" alt="" />
 
                         </div>
-
-                        <div className="HeaderButtons">
-                            <Link to={"/enter"}><button >Вход</button></Link>
-                            <Link to = {"/registration"}><button className="RegistrationButton">Регистрация</button></Link>
-                        </div>
+                        {rightContainer}      
                     </header>
                     <Navigation currentPage = {this.props.currentPage}/>
                 </header>

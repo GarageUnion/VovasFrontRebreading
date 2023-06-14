@@ -7,12 +7,39 @@ import { Link } from "react-router-dom";
 class PiesPage extends React.Component
 {
     constructor(props)
-{
-    super(props)
-    this.state =
     {
-        pies:[
-            {
+        super(props)
+        this.state={
+            pies:[]  
+        }
+        this.getBreadList = this.getBreadList.bind(this)
+        this.getBreadList(this)
+    }
+
+    getBreadList = (that) => {
+        fetch('http://localhost:5218/api/Recipes/many') 
+        .then(function(response){return response.json();})
+        .then(function(jsonStr){that.setState({pies: jsonStr});})
+        .catch(error => console.error(error));
+    }
+    
+    render()
+    {
+        return(
+            <div>
+                <Header currentPage = "PiesPage"/>
+                <header style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
+                        <Link to = "/pies-recipe" ><button>Поделиться рецептом</button></Link>
+                </header>
+                <BreadTable breads = {this.state.pies} link="/pie-info/"/>
+            </div>
+        )
+    }
+}
+
+export default PiesPage
+
+/*{
                 id: 1,
                 name: "Пирожок",
                 rating: 3,
@@ -71,22 +98,4 @@ class PiesPage extends React.Component
                 id: 12,
                 name: "Пирожок с пловом",
                 rating: 3,
-            }
-        ]
-    }
-}
-    render()
-    {
-        return(
-            <div>
-                <Header currentPage = "PiesPage"/>
-                <header style={{display: 'flex',alignItems: 'center',justifyContent: 'center'}}>
-                        <Link to = "/pies-recipe" ><button>Поделиться рецептом</button></Link>
-                </header>
-                <BreadTable breads = {this.state.pies} link="/pie-info/"/>
-            </div>
-        )
-    }
-}
-
-export default PiesPage
+            }*/ 

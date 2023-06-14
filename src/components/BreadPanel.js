@@ -12,7 +12,7 @@ class BreadPanel extends React.Component
                 <div className="BreadPanel">
                     <img src = {defaultBread}/>
                     <h2 className="name">{this.props.data.name}</h2>
-                    <h3 className="rating">{this.props.data.rating} из 5</h3>
+                    <h3 className="rating">{this.props.data.rate} из 5</h3>
                 </div>
             </Link>
         )

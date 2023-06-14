@@ -33,18 +33,17 @@
     outline:none;
     padding-left:10px;
   }
-  
-  /*.Login input[type="checkbox"] 
+
+  .Login input[type="checkbox"] 
   {
     border-radius:5px;
-    border:2px solid #f2f2f2;
     outline:none;
     width: 20px;
     height: 20px;
     display: flex;
-    margin: 10px;
-    margin-left: 45px;
-  }*/
+    margin-left: 50px;
+    margin-top: 8px;
+  }
   
   .Login textarea
   {
