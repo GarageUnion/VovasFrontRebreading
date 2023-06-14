@@ -1,0 +1,48 @@
+.Description {
+    width:100%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-content:  center;
+}
+
+.Description img 
+{
+    height: 400px;
+    width: 450px;
+    margin: 25px;
+    margin-top: 5px;
+    border-radius: 20px;
+}
+
+.CommentsSection textarea
+{
+    margin-right: 15px;
+    max-width:500px;
+    min-width:500px;
+    min-height: 50px;
+    width: 100%;
+    line-height:1.5em;
+    right:10px;
+    border-radius:5px;
+    border:2px solid #f2f2f2;
+    outline:none;
+    padding-left:10px;
+}
+
+.CommentsSection input
+{
+    margin-right: 15px;
+    width:290px;
+    min-height: 50px;
+    line-height:1.5em;
+    right:10px;
+    border-radius:5px;
+    border:2px solid #f2f2f2;
+    outline:none;
+    padding-left:10px;
+}
+
+.CommentsSection button
+{
+    margin-top: 5px;
+}

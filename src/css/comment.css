@@ -1,0 +1,16 @@
+.Comment{
+    background-color: #FFE7A9;
+    margin-bottom:10px;
+    width:97.5%;
+    resize: none;
+    padding-bottom: 4px;
+    border-radius: 5px;
+}
+
+.UserName
+{
+    background-color: #C38A48;
+    color: #FFE7A9;
+    padding: 3px;
+    margin-bottom:5px
+}
