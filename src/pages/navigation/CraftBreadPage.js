@@ -12,11 +12,11 @@ class CraftBreadPage extends React.Component
         this.state={
             craftBreads:[]  
         }
-        this.GetBreadList = this.GetBreadList.bind(this)
-        this.GetBreadList(this)
+        this.getBreadList = this.getBreadList.bind(this)
+        this.getBreadList(this)
     }
 
-    GetBreadList = (that) => {
+    getBreadList = (that) => {
         fetch('http://localhost:5006/CraftBread/many') 
         .then(function(response){return response.json();})
         .then(function(jsonStr){that.setState({craftBreads: jsonStr});})

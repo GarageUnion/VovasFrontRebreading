@@ -22,9 +22,31 @@
     justify-content:flex-end;
 }
 
+.LoggedUser
+{
+    width: 50%;
+    display: flex;
+    justify-content:flex-end;
+}
+
 .RegistrationButton
 {
     background-color: #FFE7A9;
     color: #B17733;
 }
 
+.ExitIcon{
+    margin: 17px;
+    opacity:0.5;
+    cursor: pointer;
+    transform: scale(3)
+}
+.ExitIcon:hover{
+    opacity:0.6;
+}
+
+.ProfileName{
+    color:#FFE7A9;
+    margin: 8px;
+    font-size: 30px;
+}
