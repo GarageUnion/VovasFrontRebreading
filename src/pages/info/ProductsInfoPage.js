@@ -14,7 +14,7 @@ const ProductDiscriptionPage = (props) => {
     )
 }
 
-class Description extends React.Component{x 
+class Description extends React.Component{ 
     constructor(props){
         super(props)
         this.state = {
@@ -23,10 +23,11 @@ class Description extends React.Component{x
             pictureLink: 'http://localhost:5062/Pictures/'+this.props.id.toString(),
             picture: "",
             comment: "",
-            rate: '',
+            rate: 5,
         }
         this.TakeProduct = this.TakeProduct.bind(this)
         this.TakePicture = this.TakePicture.bind(this)
+        this.SetRating = this.SetRating.bind(this)
 
         this.TakeProduct(this)
         this.TakePicture(this)
@@ -62,6 +63,10 @@ class Description extends React.Component{x
                         userName: localStorage.getItem("profileName")
                     })
                 })
+                .then(function()
+                {
+                    window.history.go();
+                })
             }
             catch(error) 
             {
@@ -77,6 +82,9 @@ class Description extends React.Component{x
             alert("Чтобы оставить отзыв, нужно войти в аккаунт")
         }
 
+    }
+    SetRating(newRate){
+        this.setState({rate: newRate})
     }
     render()
     {
