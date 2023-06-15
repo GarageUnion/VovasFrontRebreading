@@ -91,7 +91,7 @@ class Description extends React.Component{x
     {
         return(
             <div>
-                <Header/>
+                <Header currentPage = "PiesPage"/>
                 <div className='Description'>
                     <div>
                         <img src={this.state.picture}></img>

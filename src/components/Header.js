@@ -35,7 +35,7 @@ class Header extends React.Component
         {
             rightContainer = 
             <div className="LoggedUser">
-                <label className='ProfileName'>{localStorage.getItem('profileName')} {localStorage.getItem('profileId')}</label>
+                <label className='ProfileName'>{localStorage.getItem('profileName')}</label>
                 <IoExitOutline className='ExitIcon' 
                 onClick={()=>{  localStorage.setItem('loggedIn', "")
                                 localStorage.setItem('profileName', "")
