@@ -23,10 +23,11 @@ class Description extends React.Component{x
             pictureLink: 'http://localhost:5218/Pictures/'+this.props.id.toString(),
             picture: "",
             comment: "",
-            rate: '',
+            rate: 5,
         }
         this.TakePie = this.TakePie.bind(this)
         this.TakePicture = this.TakePicture.bind(this)
+        this.SetRating = this.SetRating.bind(this)
 
         this.TakePie(this)
         this.TakePicture(this)
@@ -55,12 +56,16 @@ class Description extends React.Component{x
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(
                     {
-                        review: this.state.commentInput,
-                        rate: this.state.inputRate, 
+                        review: this.state.comment,
+                        rate: this.state.rate, 
                         recipeId: this.props.id,
                         userId: localStorage.getItem("profileId"),
                         userName: localStorage.getItem("profileName")
                     })
+                })
+                .then(function()
+                {
+                    window.history.go();
                 })
             }
             catch(error) 
@@ -78,6 +83,10 @@ class Description extends React.Component{x
         }
 
     }
+    SetRating(newRate){
+        this.setState({rate: newRate})
+    }
+
     render()
     {
         return(

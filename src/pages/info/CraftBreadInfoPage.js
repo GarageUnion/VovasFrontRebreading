@@ -23,10 +23,11 @@ class Description extends React.Component{x
             pictureLink: 'http://localhost:5006/Pictures/'+this.props.id.toString(),
             picture: "",
             comment: "",
-            rate: '',
+            rate: 5
         }
         this.TakeCraftBread = this.TakeCraftBread.bind(this)
         this.TakePicture = this.TakePicture.bind(this)
+        this.SetRating = this.SetRating.bind(this)
 
         this.TakeCraftBread(this)
         this.TakePicture(this)
@@ -55,12 +56,16 @@ class Description extends React.Component{x
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(
                     {
-                        review: this.state.commentInput,
-                        rate: this.state.inputRate, 
+                        review: this.state.comment,
+                        rate: this.state.rate, 
                         breadId: this.props.id,
                         userId: localStorage.getItem("profileId"),
                         userName: localStorage.getItem("profileName")
                     })
+                })
+                .then(function()
+                {
+                    window.history.go();
                 })
             }
             catch(error) 
@@ -78,6 +83,11 @@ class Description extends React.Component{x
         }
 
     }
+    
+    SetRating(newRate){
+        this.setState({rate: newRate})
+    }
+
     render()
     {
         return(
@@ -99,7 +109,7 @@ class Description extends React.Component{x
                     </div>
                     <div className='CommentsSection'>
                         <h1>Мнение экспертов:</h1>
-                        {this.state.craftBread.recipeReviews?.map((el) =>(<Review data={el}></Review>))}
+                        {this.state.craftBread.breadReviews?.map((el) =>(<Review data={el}></Review>))}
                         <textarea placeholder="Оставьте отзыв"
                             onChange={(e) => this.setState({comment: e.target.value})}></textarea>
                         <Rating SetRating={this.SetRating} rate={this.state.rate}></Rating>
