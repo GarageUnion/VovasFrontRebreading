@@ -1,6 +1,5 @@
 import React from "react";
 import {AiFillStar,AiOutlineStar} from "react-icons/ai"
-import '../css/rating.css'
 
 export class Rating extends React.Component{
     constructor(props)
