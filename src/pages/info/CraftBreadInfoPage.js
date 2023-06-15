@@ -96,7 +96,7 @@ class Description extends React.Component{x
                         <h3>Рейтинг:</h3>
                         <label>{this.state.craftBread.rate}/5</label><br></br><br></br>
                         <h3>Состав:</h3>
-                        <label>{this.state.craftBread.necessaryProducts} рублей</label><br></br><br></br>
+                        <label>{this.state.craftBread.necessaryProducts}</label><br></br><br></br>
                         <h3>Способ приготовления:</h3>
                         <label>{this.state.craftBread.description}</label>
                     </div>

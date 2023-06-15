@@ -95,7 +95,7 @@ class Description extends React.Component{x
                         <h3>Рейтинг:</h3>
                         <label>{this.state.pie.rate}/5</label><br></br><br></br>
                         <h3>Состав:</h3>
-                        <label>{this.state.pie.necessaryProducts} рублей</label><br></br><br></br>
+                        <label>{this.state.pie.necessaryProducts}</label><br></br><br></br>
                         <h3>Способ приготовления:</h3>
                         <label>{this.state.pie.description}</label>
                     </div>
