@@ -4,6 +4,8 @@ import Header from "../../components/Header"
 import { useParams } from "react-router-dom";
 import { Review } from '../../components/Review';
 
+import defaultBread from '../../img/defaultBread.jpg'
+
 import '../../css/breadinfo.css'    
 
 const CraftBreadDiscriptionPage = (props) => {
@@ -20,28 +22,19 @@ class Description extends React.Component{x
         this.state = {
             craftBread: {},
             craftBreadLink: 'http://localhost:5006/CraftBread/one/'+this.props.id.toString(), 
-            pictureLink: 'http://localhost:5006/Pictures/'+this.props.id.toString(),
-            picture: "",
+            picture: defaultBread,
             comment: "",
             rate: 5
         }
         this.TakeCraftBread = this.TakeCraftBread.bind(this)
-        this.TakePicture = this.TakePicture.bind(this)
         this.SetRating = this.SetRating.bind(this)
 
         this.TakeCraftBread(this)
-        this.TakePicture(this)
     }
     TakeCraftBread = (that) => {
         fetch(that.state.craftBreadLink) 
         .then(function(response){return response.json();})
         .then(function(jsonStr){that.setState({craftBread: jsonStr});})
-        .catch(error => console.error(error));
-    }
-    TakePicture =(that) => {
-        fetch(that.state.pictureLink) 
-        .then(function(response){return response.json();})
-        .then(function(jsonStr){that.setState({picture: jsonStr.dataBase64});})
         .catch(error => console.error(error));
     }
 

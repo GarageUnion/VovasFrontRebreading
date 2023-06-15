@@ -4,6 +4,8 @@ import { Rating } from '../../components/Rating';
 import { useParams } from "react-router-dom";
 import { Review } from '../../components/Review';
 
+import defaultBread from '../../img/defaultBread.jpg'
+
 import '../../css/breadinfo.css'    
 
 const PieDiscriptionPage = (props) => {
@@ -20,28 +22,19 @@ class Description extends React.Component{x
         this.state = {
             pie: {},
             pieLink: 'http://localhost:5218/api/Recipes/one/'+this.props.id.toString(),
-            pictureLink: 'http://localhost:5218/Pictures/'+this.props.id.toString(),
-            picture: "",
+            picture: defaultBread,
             comment: "",
             rate: 5,
         }
         this.TakePie = this.TakePie.bind(this)
-        this.TakePicture = this.TakePicture.bind(this)
         this.SetRating = this.SetRating.bind(this)
 
         this.TakePie(this)
-        this.TakePicture(this)
     }
     TakePie = (that) => {
         fetch(that.state.pieLink) 
         .then(function(response){return response.json();})
         .then(function(jsonStr){that.setState({pie: jsonStr});})
-        .catch(error => console.error(error));
-    }
-    TakePicture =(that) => {
-        fetch(that.state.pictureLink) 
-        .then(function(response){return response.json();})
-        .then(function(jsonStr){that.setState({picture: jsonStr.dataBase64});})
         .catch(error => console.error(error));
     }
 

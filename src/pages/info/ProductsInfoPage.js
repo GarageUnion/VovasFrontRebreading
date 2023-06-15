@@ -4,6 +4,8 @@ import { Rating } from '../../components/Rating';
 import { useParams } from "react-router-dom";
 import { Review } from '../../components/Review';
 
+import defaultBread from '../../img/defaultBread.jpg'
+
 import '../../css/breadinfo.css'    
 
 const ProductDiscriptionPage = (props) => {
@@ -88,6 +90,8 @@ class Description extends React.Component{
     }
     render()
     {
+        if(this.state.picture==="")
+            this.setState({picture:defaultBread})
         return(
             <div>
                 <Header currentPage = "ProductsPage"/>
