@@ -1,5 +1,6 @@
 import React from 'react'
 import Header from "../../components/Header"
+import { Rating } from '../../components/Rating';
 import { useParams } from "react-router-dom";
 import { Review } from '../../components/Review';
 
@@ -98,10 +99,10 @@ class Description extends React.Component{x
                     </div>
                     <div className='CommentsSection'>
                         <h1>Мнение экспертов:</h1>
-                        {this.state.pie.breadReviews?.map((el) =>(<Review data={el}></Review>))}
+                        {this.state.pie.recipeReviews?.map((el) =>(<Review data={el}></Review>))}
                         <textarea placeholder="Оставьте отзыв"
                             onChange={(e) => this.setState({comment: e.target.value})}></textarea>
-                        <input placeholder="Ваша оценка от 1 до 5" onChange={(e) => this.setState({rate: e.target.value})}></input>
+                        <Rating SetRating={this.SetRating} rate={this.state.rate}></Rating>
                         <button onClick={this.inputClick}>Отправить</button>
                     </div>
                 </div>
